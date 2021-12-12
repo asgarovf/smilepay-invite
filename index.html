@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Smilepay - Invite</title>
+  </head>
+  <body>
+    <div class="sp--wrapper">
+      <div class="sp--upper">
+        <img src="assets/Logo.svg" />
+        <div class="sp--illustration">
+          <img src="assets/illustration.svg" class="sp--img" />
+        </div>
+        <div class="sp--texts">
+          <h1 class="sp--header">Get 10₼ bonus!</h1>
+          <p class="sp--text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing
+            enim orci tortor ultrices convallis purus molestie.
+          </p>
+        </div>
+        <div class="sp--copy-wrapper">
+          <div class="sp--copy">
+            <div class="sp--form" id="copy">5F46U53VF4</div>
+            <div class="sp--button" id="copy-btn">Copy</div>
+          </div>
+        </div>
+      </div>
+      <div class="sp--lower">
+        <div class="sp--inner">
+          <p class="sp--inner-h">How it works</p>
+          <div class="sp--items">
+            <div class="sp--item">
+              <div class="sp--box">1</div>
+              <span>Sign up in the SmilePay app</span>
+            </div>
+            <div class="sp--item">
+              <div class="sp--box">2</div>
+              <span>Enter promo code</span>
+            </div>
+            <div class="sp--item">
+              <div class="sp--box">3</div>
+              <span>Get bonussssss</span>
+            </div>
+          </div>
+          <div class="sp--download">
+            <button class="sp--download-button">
+              <img
+                width="24"
+                height="24"
+                class="sp--hidden"
+                id="ios"
+                src="assets/ios.png"
+              />
+              <img
+                width="24"
+                height="24"
+                id="android"
+                src="assets/android.png"
+              />
+              <span>
+                Download for <span class="sp--hidden" id="ios-text">IOS</span>
+                <span id="android-text">Android</span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function copy() {
+        try {
+          var copyText = document.getElementById("copy");
+          let elementText = copyText.textContent;
+          navigator.clipboard.writeText(elementText);
+
+          /* Alert the copied text */
+          alert("Copied the text: " + elementText);
+        } catch (err) {}
+      }
+
+      var isMobile = {
+        Android: function () {
+          return navigator.userAgent.match(/Android/i);
+        },
+        iOS: function () {
+          return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Windows: function () {
+          return (
+            navigator.userAgent.match(/IEMobile/i) ||
+            navigator.userAgent.match(/WPDesktop/i)
+          );
+        },
+      };
+
+      const copyBtn = document.getElementById("copy-btn");
+      copyBtn.addEventListener("click", copy);
+
+      (function () {
+        const ios = document.getElementById("ios");
+        const ios_text = document.getElementById("ios-text");
+        const android = document.getElementById("android");
+        const android_text = document.getElementById("android-text");
+        if (isMobile.Android()) {
+          ios.classList.add("sp--hidden");
+          ios_text.classList.add("sp--hidden");
+          android.classList.remove("sp--hidden");
+          android_text.classList.remove("sp--hidden");
+        } else if (isMobile.iOS()) {
+          ios.classList.remove("sp--hidden");
+          ios_text.classList.remove("sp--hidden");
+          android.classList.add("sp--hidden");
+          android_text.classList.add("sp--hidden");
+        }
+      })();
+    </script>
+  </body>
+</html>
