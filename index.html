@@ -50,20 +50,14 @@
               <img
                 width="24"
                 height="24"
-                class="sp--hidden"
-                id="ios"
-                src="assets/ios.png"
-              />
-              <img
-                width="24"
-                height="24"
                 id="android"
                 src="assets/android.png"
               />
-              <span>
-                Download for <span class="sp--hidden" id="ios-text">IOS</span>
-                <span id="android-text">Android</span>
-              </span>
+              <span> Download for Android </span>
+            </button>
+            <button class="sp--download-button sp--mt">
+              <img width="24" height="24" id="ios" src="assets/ios.png" />
+              <span> Download for IOS </span>
             </button>
           </div>
         </div>
@@ -82,7 +76,10 @@
         } catch (err) {}
       }
 
-      var isMobile = {
+      const copyBtn = document.getElementById("copy-btn");
+      copyBtn.addEventListener("click", copy);
+
+      /*   var isMobile = {
         Android: function () {
           return navigator.userAgent.match(/Android/i);
         },
@@ -95,12 +92,9 @@
             navigator.userAgent.match(/WPDesktop/i)
           );
         },
-      };
+      }; */
 
-      const copyBtn = document.getElementById("copy-btn");
-      copyBtn.addEventListener("click", copy);
-
-      (function () {
+      /* (function () {
         const ios = document.getElementById("ios");
         const ios_text = document.getElementById("ios-text");
         const android = document.getElementById("android");
@@ -116,7 +110,7 @@
           android.classList.add("sp--hidden");
           android_text.classList.add("sp--hidden");
         }
-      })();
+      })(); */
     </script>
   </body>
 </html>

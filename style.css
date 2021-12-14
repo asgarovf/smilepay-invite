@@ -203,3 +203,7 @@ body * {
 .sp--hidden {
   display: none;
 }
+
+.sp--mt {
+  margin-top: 12px;
+}
